@@ -1,0 +1,64 @@
+let employers = [{
+    id:1,
+    name:'Oscar'
+},
+{
+    id:2,
+    name:"Joan"
+},
+{
+    id:3,
+    name:"Jaime"
+}]
+
+let salary=[{
+    id:1,
+    salary:1000
+},
+{
+    id:2,
+    salary:3000
+}]
+
+
+
+let getEmployer = (id) =>{
+
+    return new Promise((resolve, reject)=>{
+
+        let employerBD = employers.find(employer => employer.id === id)
+
+        if(!employerBD){
+            reject(`Doesnt exist that employer with id ${id}`)
+        }else{
+            resolve(employerBD)
+        }
+    })
+
+}
+
+let getSalary = (employer) =>{
+
+    return new Promise((resolve, reject) => {
+        let salaryBD = salary.find(salares => salares.id === employer.id)
+
+        if(!salaryBD){
+            reject("Noay salario pa este personaje")
+        }else{
+            resolve( {
+                name: employer.name,
+                salary: salaryBD.salary})
+        }
+    })
+   
+}
+
+getEmployer(3).then(employer => {
+   return getSalary(employer)
+})
+.then(resp => {
+    console.log(`Salary from ${resp.name}  is ${resp.salary}`)
+})
+.catch(err=>{
+    console.log(err)
+})
