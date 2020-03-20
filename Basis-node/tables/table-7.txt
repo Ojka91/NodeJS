@@ -1,0 +1,10 @@
+base 7 * 1 = 7
+base 7 * 2 = 14
+base 7 * 3 = 21
+base 7 * 4 = 28
+base 7 * 5 = 35
+base 7 * 6 = 42
+base 7 * 7 = 49
+base 7 * 8 = 56
+base 7 * 9 = 63
+base 7 * 10 = 70

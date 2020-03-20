@@ -1,0 +1,10 @@
+base 2 * 1 = 2
+base 2 * 2 = 4
+base 2 * 3 = 6
+base 2 * 4 = 8
+base 2 * 5 = 10
+base 2 * 6 = 12
+base 2 * 7 = 14
+base 2 * 8 = 16
+base 2 * 9 = 18
+base 2 * 10 = 20
