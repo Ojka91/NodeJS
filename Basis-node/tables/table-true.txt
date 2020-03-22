@@ -1,0 +1,10 @@
+base true * 1 = 1
+base true * 2 = 2
+base true * 3 = 3
+base true * 4 = 4
+base true * 5 = 5
+base true * 6 = 6
+base true * 7 = 7
+base true * 8 = 8
+base true * 9 = 9
+base true * 10 = 10
