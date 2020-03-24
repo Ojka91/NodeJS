@@ -1,6 +1,9 @@
 const express = require('express')
 const hbs = require('hbs')
 
+//We dont know which port heroku will give us. If doesnt exist, (like in local) -> 3000
+const port = process.env.PORT || 3000
+
 //importa helpers 
 require('./hbs/hbs')
 
@@ -28,4 +31,4 @@ app.get('/about', function (req, res) {
     })
 })
 
-app.listen(3000, () => console.log('Listening port 3000'))
+app.listen(3000, () => console.log(`Listening port ${port}`))
