@@ -1,55 +1,25 @@
-require('./config/config')
+require('./config/config');
 
-const express = require('express')
-const app = express()
-const port = process.env.PORT
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose')
 
-
-var bodyParser = require('body-parser')
-
-
+const bodyParser = require('body-parser');
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({
-    extended: false
-}))
+app.use(bodyParser.urlencoded({ extended: false }))
 
-
-//parse application/json
+// parse application/json
 app.use(bodyParser.json())
 
-app.get('/user', function (req, res) {
-    res.json('get user')
+app.use(require('./routes/user'))
+
+mongoose.connect('mongodb://localhost:27017/coffe', (err, res) => {
+    if(err) throw err;
+
+    console.log('Database on')
 })
 
-app.post('/user', function (req, res) {
-    body = req.body;
-    if (body.name === undefined) {
-        res.status(400).json({
-            ok: false,
-            msg: 'Name is mandatory'
-        })
-    } else {
-        res.json({
-            person: body
-        })
-    }
-    res.json({
-        body
-    })
-})
-
-app.put('/user/:id', function (req, res) {
-    let id = req.params.id
-    res.json({
-        id
-    })
-})
-
-app.delete('/user', function (req, res) {
-    res.json('delete user')
-})
-
-app.listen(port, () => {
-    console.log(`Listening port ${port}`)
-})
+app.listen(process.env.PORT, () => {
+    console.log('Escuchando puerto: ', process.env.PORT);
+});
