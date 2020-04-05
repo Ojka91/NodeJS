@@ -2,3 +2,23 @@
 //  Puerto
 // ============================
 process.env.PORT = process.env.PORT || 3000;
+
+
+// ============================
+//  Entorno
+// ============================
+//heroku te una variable de entorn que es diu NODE_ENV
+process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
+
+// ============================
+//  Database
+// ============================
+let urlDB
+if (process.env.NODE_ENV === 'dev'){
+    urlDB = 'mongodb://localhost:27017/coffe'
+}else {
+    urlDB = process.env.MONGO_URI //mongodb+srv://cafe-user:1234@cluster0-r9ycz.mongodb.net/test seteada a heroku
+}
+
+process.env.URLDB = urlDB;
+

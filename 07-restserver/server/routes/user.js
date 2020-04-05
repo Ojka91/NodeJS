@@ -11,7 +11,11 @@ app.get('/usuario', function (req, res) {
     let limit = req.query.limit || 5;
     limit = Number(limit)
 
-    Usuario.find({})
+    let usersActivos = {
+        state: true
+    }
+
+    Usuario.find(usersActivos, 'nombre email rol estado google img')
             .skip(from)
             .limit(limit)
             .exec((err, users) => {
@@ -22,7 +26,7 @@ app.get('/usuario', function (req, res) {
                     });
                 }
 
-                Usuario.count({}, (err, counter) => {
+                Usuario.count(usersActivos, (err, counter) => {
                         res.json({
                         ok:true,
                         users,
@@ -85,8 +89,35 @@ app.put('/usuario/:id', function (req, res) {
 
 });
 
-app.delete('/usuario', function (req, res) {
-    res.json('delete Usuario');
+app.delete('/usuario/:id', function (req, res) {
+
+    let id = req.params.id;
+
+    let cambiaEstado = {
+        state: false
+    }
+
+    //Usuario.findByIdAndRemove(id, (err, deletedUser) => {
+    Usuario.findByIdAndUpdate(id, cambiaEstado, {new: true}, (err, deletedUser) =>{
+        if(err){
+            return res.status(400).json({
+                ok: false,
+                err
+            })
+        }
+        if(!deletedUser){
+            return res.status(400).json({
+                ok: false,
+                error: {
+                    message: "User not found"
+                }
+            })
+        }
+        res.json({
+            ok:true,
+            usuario: deletedUser
+        })
+    })
 });
 
 module.exports = app

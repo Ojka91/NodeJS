@@ -1,0 +1,4 @@
+user: Ojka91
+pass: ORbF7Y4T4Q28TDFc
+
+mongodb+srv://Ojka91:ORbF7Y4T4Q28TDFc@cluster0-r9ycz.mongodb.net/test
