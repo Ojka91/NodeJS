@@ -22,3 +22,20 @@ if (process.env.NODE_ENV === 'dev'){
 
 process.env.URLDB = urlDB;
 
+
+// ============================
+//  Token Expiration
+// ============================
+//60 seconds
+//60 minutes
+//24 hours
+//30 days
+
+process.env.TOKEN_EXPIRATION = 60*60*24*30
+
+
+// ============================
+//  SEED autenticacion
+// ============================
+
+process.env.SEED = process.env.SEED || 'el-secreto-mejor-guardado'
