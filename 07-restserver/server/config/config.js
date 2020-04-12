@@ -37,5 +37,10 @@ process.env.TOKEN_EXPIRATION = 60*60*24*30
 // ============================
 //  SEED autenticacion
 // ============================
-
 process.env.SEED = process.env.SEED || 'el-secreto-mejor-guardado'
+
+
+// ============================
+//  Google Cient ID
+// ============================ç
+process.env.CLIENT_ID = process.env.CLIENT_ID || '710844192476-k3gjevab67rq84sa2flvrc0chquktllu.apps.googleusercontent.com'
