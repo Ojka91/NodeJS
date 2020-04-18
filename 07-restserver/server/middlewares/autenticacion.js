@@ -38,7 +38,7 @@ let verificarUsuarioAdmin = (req, res, next) =>  {
         return res.status(400).json({
             ok: false,
             err: {
-                message: 'No tienes permisos wey'
+                message: 'No tienes permisos weon'
             }
         })
     }else{
