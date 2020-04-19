@@ -13,6 +13,7 @@
 <body>
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
     <a href="#" onclick="signOut();">Sign out</a>
+    <img src="http://localhost:3000/imagen/productos/5e9b16a80dab522738360ae3-938.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbCI6IkFETUlOX1JPTEUiLCJzdGF0ZSI6dHJ1ZSwiZ29vZ2xlIjpmYWxzZSwiX2lkIjoiNWU4Mzk1MjJjYzg4MDE1YmY4YzJiOGVkIiwibm9tYnJlIjoiVGVzdCAyIiwiZW1haWwiOiJ0ZXN0MkB0ZXN0LmNvbSIsIl9fdiI6MH0sImlhdCI6MTU4NzIyMTc1NSwiZXhwIjoxNTg5ODEzNzU1fQ.kJtfzdz3LnE7YhQ2g_F2gtcuPQcz-_J7qs1QIkyKcAM" alt="">
     <script>
         function signOut() {
             var auth2 = gapi.auth2.getAuthInstance();
@@ -20,6 +21,7 @@
                 console.log('User signed out.');
             });
         }
+
     </script>
     <script>
         function onSignIn(googleUser) {

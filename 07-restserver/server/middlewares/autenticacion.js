@@ -47,9 +47,33 @@ let verificarUsuarioAdmin = (req, res, next) =>  {
     
 }
 
+//===================
+// Verificar Token img 
+//===================
+let verificarTokenImg = (req, res, next) => {
+    let token = req.query.token;
+
+    jwt.verify(token, process.env.SEED , (err, decoded) => {
+        if (err) {
+            return res.status(401).json({
+                ok: false,
+                err: {
+                    message: 'Not valid token'
+                }
+            })
+        }
+
+        req.usuario = decoded.user;
+        next()
+
+    })
+
+
+}
 
 
 module.exports = {
     verificarToken,
-    verificarUsuarioAdmin
+    verificarUsuarioAdmin,
+    verificarTokenImg
 }
